@@ -1,98 +1,49 @@
-# Property lease management system in docker-compose
+# Containerized Real Estate Platform (Django + Docker + Gunicorn)
 
-System for the management of real estate leasing, among the functionalities is the registration of real estate, registration of lessors and tenants, rental requests by lessors, and the approval or not of the leases by the lessee. All the project integrate in the docker conteiner.
+Este repositorio contiene una plataforma de gestión de bienes raíces desarrollada en **Django**, diseñada bajo una arquitectura de microservicios contenerizados. El proyecto destaca por su preparación para entornos de producción, utilizando **Docker** para la portabilidad y **Gunicorn** como servidor de aplicaciones de alto rendimiento.
 
-## Project description
+## 🚀 Capacidades Técnicas y Arquitectura de Despliegue
 
-Web application for the management of real estate properties, landlords and tenants. Features: User registration: Tenants and lessors. Editing of tenant and lessor data. User login. Property registration only for tenants. Properties can be hidden. Editing property data. Gallery of images and property information. Landlords may request property approval from the Tenant. The Tenant may accept the Landlord interested in any property.
+* **Entorno Contenerizado (Docker):** Implementación de archivos `Dockerfile` y Docker Compose para garantizar la paridad entre los entornos de desarrollo, prueba y producción.
+* **Servidor de Producción Gunicorn:** Configuración de Gunicorn como interfaz de pasarela de servidor web (WSGI) para manejar múltiples peticiones concurrentes de manera eficiente.
+* **Gestión de Activos y Propiedades:** Sistema robusto de backend para la administración de listados inmobiliarios, incluyendo filtrado, categorías y persistencia de datos.
+* **Seguridad y Aislamiento:** Uso de contenedores para aislar las dependencias del sistema operativo, facilitando despliegues limpios y escalables en la nube (AWS, DigitalOcean, Heroku, etc.).
 
-## Project Screenshots
+## 🛠️ Stack Tecnológico
 
-Incluir capturas de pantalla o imágenes que muestren el proyecto en funcionamiento.
+* **Framework Backend:** Django 4.x / 5.x
+* **Servidor WSGI:** Gunicorn
+* **Contenerización:** Docker
+* **Lenguaje:** Python 3.x
+* **Base de Datos:** PostgreSQL dentro del contenedor.
 
-![Home] (img/init.png)
-![Home] (img/init-2.png)
-![Home] (img/init-3.png)
-Application home view.
+## ⚙️ Resolución de Desafíos de Infraestructura
 
-![Log](img/loging.png)
-Application loging.
+El desarrollo de este proyecto se enfocó en resolver problemas críticos de despliegue moderno:
 
-![message](img/message success warning.png)
-Application success warning messages.
+1. **Portabilidad "Write Once, Run Anywhere":** Gracias a Docker, la aplicación incluye todas sus dependencias, variables de entorno y configuraciones internas, eliminando el problema de "en mi máquina sí funciona".
+2. **Preparación para Tráfico Real:** Al sustituir el servidor de desarrollo de Django (`runserver`) por **Gunicorn**, la aplicación está lista para manejar procesos en paralelo y gestionar la carga de trabajo de manera profesional.
+3. **Optimización de Imágenes:** Uso de imágenes base ligeras Alpine para reducir el tamaño de los contenedores y acelerar los tiempos de despliegue en CI/CD.
 
-![post](img/post options.png)
-Application post.
+## 🔧 Configuración y Ejecución con Docker
 
-![profile](img/profile options.png)
-Application profile.
+Para levantar la aplicación en tu entorno local sin necesidad de instalar dependencias manualmente, sigue estos pasos:
 
-![gallery](img/Property search and gallery.png)
-Application gallery.
+### Prerrequisitos
+* Tener instalado **Docker** y **Docker Compose**.
 
-![Register](img/register property.png)
-Application register.
+### Instalación y Arranque
+1. **Clonar el repositorio:**
+   ```bash
+   git clone [https://github.com/longaresf/django-real-estate-containerized.git](https://github.com/longaresf/django-real-estate-containerized.git)
+   ```
+2. Construir y levantar el contenedor:
+  Bash
+  docker-compose up --build
 
-![sign-up](img/sign up.png)
-Application register.
+3. Acceder a la aplicación:
+  La plataforma estará disponible en http://localhost:8000.
 
-![property](img/status property.png)
-Application status property.
+✒️ Autor
 
-## Prerequisites or Dependencies
-
-List of software and tools, including versions, you need to install and run this project:
-
-- Programming language: Python 3.12.2
-- Framework: Django 5.0.6
-- Database: PostgreSQL 16
-- Library: crispy-bootstrap5==2024.2, django-crispy-forms==2.1, psycopg==3.1.18, sqlparse==0.5.0, typing_extensions==4.11.0, tzdata==2024.1, asgiref==3.8.1, django-environ==0.11.2
-
-## Project Installation
-
-Step by step guide on how to set up development environment and install all dependencies.
-
-```bash
-# Step 1
-```
-Clone the repository using Git:
-
-```bash
-# Step 2
-```
-- Install Docker Desktop
-
-## Instructions to Execute the Project
-
-Instructions to run the project once installed.
-
-```bash
-# Step 1
-```
-- docker-compose up -d --build
-- Starting development server at http://localhost:1337
-
-## Instructions for Loading the Database or Migrating Models
-
-The database populated is integrated into the project 
-
-## Access credentials
-
-### For Administrator Type User
-
-- admin
-- password: Prueba12
-
-### For tenant User
-
-- Francisco
-- password: Prueba12
-
-### For User
-
-- Javier_Francisco
-- password: Prueba12
-
-## Author
-
-- [Francisco Longares](https://github.com/longaresf/Django_docker_gunicorn_real_state)
+    Francisco Longares - Backend & DevOps Engineer - longaresf
